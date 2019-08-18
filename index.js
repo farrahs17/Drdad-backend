@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 
 mongoose
   .connect(
-    "mongodb+srv://farrah:fireit@cluster0-ptixe.mongodb.net/test?retryWrites=true&w=majority"
+    "mongodb+srv://farrah:drdad@drdad-spq2j.mongodb.net/test?retryWrites=true&w=majority"
   )
   .then(result => {
     console.log("Database connected!");
