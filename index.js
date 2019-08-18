@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-
+const routes = require("./routes");
 const app = express();
 
 app.use(bodyParser.json());
@@ -15,7 +15,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "*");
   next();
 });
-// app.use("/", routes);
+app.use("/", routes);
 
 mongoose
   .connect(
