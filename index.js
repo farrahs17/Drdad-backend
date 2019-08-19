@@ -5,10 +5,15 @@ const routes = require("./routes");
 const app = express();
 const cors = require("cors")
 
+<<<<<<< HEAD
 app.use(cors())
 
+=======
+app.use( cors())
+>>>>>>> origin/beb
 
 
+<<<<<<< HEAD
 app.use(bodyParser.json());
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -20,6 +25,8 @@ app.use((req, res, next) => {
   next();
 });
 
+=======
+>>>>>>> origin/beb
 app.use("/", routes);
 
 mongoose
