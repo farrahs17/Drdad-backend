@@ -1,7 +1,6 @@
 const Patient = require("../models/Patient");
 
 exports.addPatient = (req, res, next) => {
-  console.log("fark");
   console.log(req.body);
   const name = req.body.patient.name;
   const age = req.body.patient.age;
@@ -12,7 +11,7 @@ exports.addPatient = (req, res, next) => {
   Patient.create({})
     .then(result => {
       console.log(result);
-      res.status(200).json({ patient: result });
+      res.status(200).json({ result });
     })
     .catch(err => console.log(err));
 };

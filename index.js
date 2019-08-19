@@ -9,9 +9,7 @@ const cors = require("cors");
 // app.use(cors());
 app.use(bodyParser.json());
 
-app.use( cors())
-
-
+app.use(cors());
 
 app.use("/", routes);
 
@@ -26,4 +24,3 @@ mongoose
   .catch(err => {
     console.log(err);
   });
-// tafahat a bit love, ill try many different stupid dos
