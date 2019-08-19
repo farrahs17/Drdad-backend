@@ -24,7 +24,7 @@ exports.updatePatient = (req, res, next) => {
   const visits = req.body.patient.visits;
   const id = req.body.patient.id;
 
-  Patient.findOne({ id: id })
+  Patient.findOne({ _id: id })
     .then(p => {
       console.log(p);
       Patient.update({
@@ -68,5 +68,22 @@ exports.getPatient = (req, res, next) => {
     .catch(err => {
       console.log(err);
       res.status(400).json({ msg: "Something went wrong" });
+    });
+};
+
+exports.search = (req, res, next) => {
+  let searchKey = new RegExp(req.body.searchKey, "i");
+
+  Patient.find({ name: searchKey })
+    .then(result => {
+      console.log(result);
+      if (!result) {
+        return res.status(404).json("No data found");
+      }
+      res.status(200).json(result);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(400).json("An error occurred");
     });
 };
