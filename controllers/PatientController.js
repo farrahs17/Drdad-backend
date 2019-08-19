@@ -6,13 +6,13 @@ exports.addPatient = (req, res, next) => {
   const gender = req.body.patient.gender;
   const history = req.body.patient.history;
   const visits = req.body.patient.visits;
-
-  Patient.create({})
+  console.log(req);
+  Patient.create({ name: name })
     .then(result => {
       console.log(result);
       res.status(200).json({ patient: result });
     })
-    .catch(err => console.log(err));
+    .catch(err => console.log(err, "not work"));
 };
 
 exports.updatePatient = (req, res, next) => {

@@ -15,6 +15,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "*");
   next();
 });
+
 app.use("/", routes);
 
 mongoose
