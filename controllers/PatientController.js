@@ -1,7 +1,6 @@
 const Patient = require("../models/Patient");
 
 exports.addPatient = (req, res, next) => {
-  console.log(req.body)
   const name = req.body.patient.name;
   const age = req.body.patient.age;
   const gender = req.body.patient.gender;
