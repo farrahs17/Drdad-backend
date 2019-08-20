@@ -28,12 +28,12 @@ exports.updatePatient = (req, res, next) => {
   const gender = req.body.patient.gender;
   const history = req.body.patient.history;
   const visits = req.body.patient.visits;
-  const id = req.body.patient.id;
+  const _id = req.body.patient._id;
 
-  Patient.findOne({ _id: id })
-    .then(p => {
-      console.log(p);
-      Patient.update({
+  // Patient.findOne({ _id: id })
+  //   .then(p => {
+  //     console.log(p);
+      Patient.update({_id: _id},{
         name: name,
         age: age,
         gender: gender,
@@ -45,9 +45,9 @@ exports.updatePatient = (req, res, next) => {
           res.status(200).json({ msg: "updated" });
         })
         .catch(err => console.log(err));
-    })
-    .catch(err => console.log(err));
-};
+    // })
+//     .catch(err => console.log(err));
+// };
 
 exports.deletePatient = (req, res, next) => {
   const id = req.body.patient.id;
