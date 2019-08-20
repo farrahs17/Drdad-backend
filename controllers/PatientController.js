@@ -58,8 +58,8 @@ exports.deletePatient = (req, res, next) => {
 };
 
 exports.getPatient = (req, res, next) => {
-  const id = req.body.patient.id;
-
+  const id = req.body.id;
+  console.log(id);
   Patient.findOne({ _id: id })
     .then(p => {
       console.log(p);
