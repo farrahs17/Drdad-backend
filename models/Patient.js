@@ -21,7 +21,7 @@ const patientSchema = new Schema({
   visits: [
     {
       date: {
-        type: Date
+        type: String
       },
       type: {
         type: String
