@@ -47,7 +47,7 @@ exports.updatePatient = (req, res, next) => {
         .catch(err => console.log(err));
     // })
 //     .catch(err => console.log(err));
-// };
+};
 
 exports.deletePatient = (req, res, next) => {
   const id = req.body.patient.id;
