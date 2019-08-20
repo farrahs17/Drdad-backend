@@ -8,7 +8,13 @@ exports.addPatient = (req, res, next) => {
   const history = req.body.patient.history;
   const visits = req.body.patient.visits;
 
-  Patient.create({})
+  Patient.create({
+    name: name,
+    age: age,
+    gender: gender,
+    history: history,
+    visits: visits
+  })
     .then(result => {
       console.log(result);
       res.status(200).json({ result });
