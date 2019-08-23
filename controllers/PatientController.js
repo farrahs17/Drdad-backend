@@ -1,4 +1,5 @@
 const Patient = require("../models/Patient");
+const SortResults = require("../utils/SortResults")
 
 exports.addPatient = (req, res, next) => {
   console.log(req.body);
@@ -82,11 +83,10 @@ exports.search = (req, res, next) => {
 
   Patient.find({ name: searchKey })
     .then(result => {
-      console.log(result);
       if (!result) {
         return res.status(404).json("No data found");
       }
-      res.status(200).json(result);
+      res.status(200).json(SortResults.sortResults(searchKey,result));
     })
     .catch(err => {
       console.log(err);
