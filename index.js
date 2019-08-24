@@ -3,10 +3,10 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
+const socket = require("socket.io")
 
 const cors = require("cors");
 
-// app.use(cors());
 app.use(bodyParser.json());
 
 app.use(cors());
@@ -19,7 +19,14 @@ mongoose
   )
   .then(result => {
     console.log("Database connected!");
-    app.listen(5000);
+    const server = app.listen(5000);
+    const io = socket(server)
+    io.on("connection",(socket)=>{
+      socket.on("push incoming",(data)=>{
+        socket.broadcast.emit("here push",data)
+      })
+    })
+
   })
   .catch(err => {
     console.log(err);
